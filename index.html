@@ -1,2359 +1,1615 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
-    <!-- =========================================================
-         WEBSITE XI TKJ 1
-         =========================================================
-
-         CARA MENAMBAHKAN FOTO DI GITHUB:
-
-         1. Buat folder:
-            images
-
-         2. Masukkan foto ke dalam folder tersebut.
-
-         Contoh:
-            images/wali.jpg
-            images/ketua.jpg
-            images/wakil.jpg
-            images/sekretaris1.jpg
-            images/sekretaris2.jpg
-            images/bendahara1.jpg
-            images/bendahara2.jpg
-
-         3. Untuk foto piket:
-            images/senin.jpg
-            images/selasa.jpg
-            images/rabu.jpg
-            images/kamis.jpg
-            images/jumat.jpg
-
-         4. Untuk kegiatan:
-            images/kegiatan1.jpg
-            images/kegiatan2.jpg
-            images/kegiatan3.jpg
-
-         5. Pastikan nama file SAMA PERSIS.
-            Contoh:
-            sekretaris1.jpg
-            bukan:
-            Sekretaris1.JPG
-
-         6. Foto akan otomatis dibatasi ukurannya oleh CSS.
-            Jadi walaupun foto asli besar, tidak akan memenuhi
-            seluruh layar website.
-
-         ========================================================= -->
-
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-    <title>XI TKJ 1 | Kelas Teknologi Jaringan</title>
-
-
-    <style>
-
-        /* =====================================================
-           RESET
-        ===================================================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Roboto,
-                Arial,
-                sans-serif;
-
-            min-height: 100vh;
-
-            color: white;
-
-            overflow-x: hidden;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    #071d3d 0%,
-                    #050c19 45%,
-                    #000000 100%
-                );
-
-            transition:
-                background 1s ease,
-                color .5s ease;
-
-        }
-
-
-        /* =====================================================
-           TEMA UNGU
-        ===================================================== */
-
-        body.purple {
-
-            background:
-                linear-gradient(
-                    180deg,
-                    #28083f 0%,
-                    #11051c 45%,
-                    #000000 100%
-                );
-
-        }
-
-
-        /* =====================================================
-           BACKGROUND GLOW
-        ===================================================== */
-
-        body::before {
-
-            content: "";
-
-            position: fixed;
-
-            width: 420px;
-            height: 420px;
-
-            top: 5%;
-            left: -180px;
-
-            border-radius: 50%;
-
-            background: #147dff;
-
-            filter: blur(120px);
-
-            opacity: .20;
-
-            z-index: -10;
-
-            pointer-events: none;
-
-            animation:
-                floatingGlow 10s ease-in-out infinite alternate;
-
-        }
-
-
-        body::after {
-
-            content: "";
-
-            position: fixed;
-
-            width: 400px;
-            height: 400px;
-
-            right: -180px;
-            bottom: 5%;
-
-            border-radius: 50%;
-
-            background: #315eff;
-
-            filter: blur(120px);
-
-            opacity: .18;
-
-            z-index: -10;
-
-            pointer-events: none;
-
-            animation:
-                floatingGlow2 12s ease-in-out infinite alternate;
-
-        }
-
-
-        body.purple::before {
-            background: #a83dff;
-        }
-
-        body.purple::after {
-            background: #7127ff;
-        }
-
-
-        @keyframes floatingGlow {
-
-            from {
-                transform:
-                    translateY(-40px)
-                    translateX(0);
-            }
-
-            to {
-                transform:
-                    translateY(50px)
-                    translateX(80px);
-            }
-
-        }
-
-
-        @keyframes floatingGlow2 {
-
-            from {
-                transform:
-                    translateY(40px)
-                    translateX(0);
-            }
-
-            to {
-                transform:
-                    translateY(-50px)
-                    translateX(-70px);
-            }
-
-        }
-
-
-        /* =====================================================
-           TOP BAR
-        ===================================================== */
-
-        .topbar {
-
-            position: sticky;
-
-            top: 0;
-
-            z-index: 999;
-
-            height: 64px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            padding:
-                0 24px;
-
-            background:
-                rgba(9, 20, 38, .78);
-
-            border-bottom:
-                1px solid rgba(255,255,255,.08);
-
-            backdrop-filter:
-                blur(25px);
-
-            -webkit-backdrop-filter:
-                blur(25px);
-
-        }
-
-
-        body.purple .topbar {
-
-            background:
-                rgba(31, 8, 43, .78);
-
-        }
-
-
-        .logo {
-
-            font-size: 17px;
-
-            font-weight: 800;
-
-            letter-spacing: .5px;
-
-        }
-
-
-        .logo span {
-
-            color: #52a8ff;
-
-        }
-
-
-        body.purple .logo span {
-
-            color: #d083ff;
-
-        }
-
-
-        /* =====================================================
-           NAVIGATION
-        ===================================================== */
-
-        .nav {
-
-            display: flex;
-
-            gap: 7px;
-
-            align-items: center;
-
-        }
-
-
-        .nav button {
-
-            border: none;
-
-            color:
-                rgba(255,255,255,.68);
-
-            background:
-                transparent;
-
-            padding:
-                9px 13px;
-
-            border-radius:
-                12px;
-
-            cursor: pointer;
-
-            transition:
-                .3s ease;
-
-            font-size:
-                13px;
-
-        }
-
-
-        .nav button:hover {
-
-            color: white;
-
-            background:
-                rgba(255,255,255,.08);
-
-        }
-
-
-        .nav button.active {
-
-            color: white;
-
-            background:
-                rgba(255,255,255,.13);
-
-            box-shadow:
-                inset 0 1px rgba(255,255,255,.08);
-
-        }
-
-
-        /* =====================================================
-           THEME BUTTON
-        ===================================================== */
-
-        .theme-button {
-
-            border: none;
-
-            cursor: pointer;
-
-            color: white;
-
-            background:
-                rgba(255,255,255,.10);
-
-            border:
-                1px solid rgba(255,255,255,.12);
-
-            padding:
-                9px 15px;
-
-            border-radius:
-                30px;
-
-            backdrop-filter:
-                blur(20px);
-
-            transition:
-                .3s ease;
-
-        }
-
-
-        .theme-button:hover {
-
-            background:
-                rgba(255,255,255,.17);
-
-        }
-
-
-        .theme-button:active {
-
-            transform:
-                scale(.90);
-
-        }
-
-
-        /* =====================================================
-           PAGE SYSTEM
-        ===================================================== */
-
-        .page {
-
-            display: none;
-
-            width:
-                min(1100px, 92%);
-
-            min-height:
-                calc(100vh - 64px);
-
-            margin:
-                auto;
-
-            padding:
-                70px 0;
-
-            animation:
-                pageEnter .7s cubic-bezier(.2,.8,.2,1);
-
-        }
-
-
-        .page.active {
-
-            display: block;
-
-        }
-
-
-        @keyframes pageEnter {
-
-            from {
-
-                opacity: 0;
-
-                transform:
-                    translateX(45px)
-                    scale(.98);
-
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform:
-                    translateX(0)
-                    scale(1);
-
-            }
-
-        }
-
-
-        /* =====================================================
-           HERO
-        ===================================================== */
-
-        .hero {
-
-            min-height:
-                calc(100vh - 200px);
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            text-align:
-                center;
-
-        }
-
-
-        .hero-content {
-
-            max-width:
-                800px;
-
-        }
-
-
-        .hero-badge {
-
-            display:
-                inline-block;
-
-            padding:
-                9px 17px;
-
-            border-radius:
-                30px;
-
-            color:
-                #8fc8ff;
-
-            background:
-                rgba(72,154,255,.10);
-
-            border:
-                1px solid rgba(100,180,255,.18);
-
-            margin-bottom:
-                22px;
-
-            font-size:
-                13px;
-
-        }
-
-
-        body.purple .hero-badge {
-
-            color:
-                #dfadff;
-
-            background:
-                rgba(178,77,255,.10);
-
-            border-color:
-                rgba(210,120,255,.18);
-
-        }
-
-
-        .hero h1 {
-
-            font-size:
-                clamp(42px, 8vw, 82px);
-
-            line-height:
-                .98;
-
-            letter-spacing:
-                -4px;
-
-            margin-bottom:
-                22px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #ffffff,
-                    #75baff,
-                    #ffffff
-                );
-
-            background-size:
-                200% auto;
-
-            -webkit-background-clip:
-                text;
-
-            -webkit-text-fill-color:
-                transparent;
-
-            animation:
-                textGradient 5s linear infinite;
-
-        }
-
-
-        body.purple .hero h1 {
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #ffffff,
-                    #d18cff,
-                    #ffffff
-                );
-
-            background-size:
-                200% auto;
-
-            -webkit-background-clip:
-                text;
-
-            -webkit-text-fill-color:
-                transparent;
-
-        }
-
-
-        @keyframes textGradient {
-
-            to {
-                background-position:
-                    200% center;
-            }
-
-        }
-
-
-        .hero p {
-
-            color:
-                rgba(255,255,255,.62);
-
-            font-size:
-                17px;
-
-            line-height:
-                1.7;
-
-            max-width:
-                600px;
-
-            margin:
-                auto;
-
-        }
-
-
-        /* =====================================================
-           MENU UTAMA
-        ===================================================== */
-
-        .menu-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap:
-                20px;
-
-            margin-top:
-                45px;
-
-        }
-
-
-        .menu-card {
-
-            position:
-                relative;
-
-            padding:
-                30px;
-
-            min-height:
-                180px;
-
-            overflow:
-                hidden;
-
-            cursor:
-                pointer;
-
-            border-radius:
-                25px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,255,255,.12),
-                    rgba(255,255,255,.035)
-                );
-
-            border:
-                1px solid rgba(255,255,255,.13);
-
-            backdrop-filter:
-                blur(25px);
-
-            -webkit-backdrop-filter:
-                blur(25px);
-
-            transition:
-                .45s cubic-bezier(.2,.8,.2,1);
-
-            box-shadow:
-                0 20px 60px rgba(0,0,0,.20);
-
-        }
-
-
-        .menu-card::before {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            top:
-                -100%;
-
-            left:
-                -100%;
-
-            width:
-                50%;
-
-            height:
-                300%;
-
-            transform:
-                rotate(25deg);
-
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255,255,255,.14),
-                    transparent
-                );
-
-            transition:
-                .8s ease;
-
-        }
-
-
-        .menu-card:hover::before {
-
-            left:
-                160%;
-
-        }
-
-
-        .menu-card:hover {
-
-            transform:
-                translateY(-8px)
-                scale(1.025);
-
-            border-color:
-                rgba(110,190,255,.25);
-
-            box-shadow:
-                0 30px 80px rgba(0,0,0,.35),
-                0 0 30px rgba(50,140,255,.10);
-
-        }
-
-
-        body.purple .menu-card:hover {
-
-            border-color:
-                rgba(205,110,255,.25);
-
-            box-shadow:
-                0 30px 80px rgba(0,0,0,.35),
-                0 0 30px rgba(170,70,255,.12);
-
-        }
-
-
-        .menu-card:active {
-
-            transform:
-                scale(.94);
-
-        }
-
-
-        .menu-icon {
-
-            font-size:
-                35px;
-
-            margin-bottom:
-                18px;
-
-        }
-
-
-        .menu-card h3 {
-
-            font-size:
-                21px;
-
-            margin-bottom:
-                8px;
-
-        }
-
-
-        .menu-card p {
-
-            color:
-                rgba(255,255,255,.55);
-
-            font-size:
-                13px;
-
-            line-height:
-                1.6;
-
-        }
-
-
-        .arrow {
-
-            position:
-                absolute;
-
-            right:
-                24px;
-
-            bottom:
-                23px;
-
-            color:
-                rgba(255,255,255,.5);
-
-            font-size:
-                20px;
-
-            transition:
-                .3s ease;
-
-        }
-
-
-        .menu-card:hover .arrow {
-
-            transform:
-                translateX(7px);
-
-            color:
-                white;
-
-        }
-
-
-        /* =====================================================
-           SECTION TITLE
-        ===================================================== */
-
-        .page-title {
-
-            text-align:
-                center;
-
-            margin-bottom:
-                45px;
-
-        }
-
-
-        .page-title h2 {
-
-            font-size:
-                clamp(30px,5vw,48px);
-
-            margin-bottom:
-                10px;
-
-            letter-spacing:
-                -1px;
-
-        }
-
-
-        .page-title p {
-
-            color:
-                rgba(255,255,255,.52);
-
-        }
-
-
-        /* =====================================================
-           GLASS CARD
-        ===================================================== */
-
-        .glass {
-
-            position:
-                relative;
-
-            overflow:
-                hidden;
-
-            border-radius:
-                24px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,255,255,.10),
-                    rgba(255,255,255,.035)
-                );
-
-            border:
-                1px solid rgba(255,255,255,.12);
-
-            backdrop-filter:
-                blur(25px);
-
-            -webkit-backdrop-filter:
-                blur(25px);
-
-            box-shadow:
-                0 20px 60px rgba(0,0,0,.22);
-
-            transition:
-                .4s cubic-bezier(.2,.8,.2,1);
-
-        }
-
-
-        .glass::before {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            top:
-                -120%;
-
-            left:
-                -120%;
-
-            width:
-                55%;
-
-            height:
-                350%;
-
-            transform:
-                rotate(25deg);
-
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255,255,255,.10),
-                    transparent
-                );
-
-            transition:
-                .8s ease;
-
-            pointer-events:
-                none;
-
-        }
-
-
-        .glass:hover::before {
-
-            left:
-                160%;
-
-        }
-
-
-        .glass:hover {
-
-            transform:
-                translateY(-7px)
-                scale(1.015);
-
-            box-shadow:
-                0 30px 80px rgba(0,0,0,.35);
-
-        }
-
-
-        .glass:active {
-
-            transform:
-                scale(.95);
-
-        }
-
-
-        /* =====================================================
-           PENGURUS
-        ===================================================== */
-
-        .wali-card {
-
-            max-width:
-                600px;
-
-            margin:
-                0 auto 25px;
-
-        }
-
-
-        .officer-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            gap:
-                18px;
-
-        }
-
-
-        .person-card {
-
-            padding:
-                25px;
-
-            text-align:
-                center;
-
-        }
-
-
-        /* BATAS UKURAN FOTO */
-
-        .person-photo {
-
-            width:
-                105px;
-
-            height:
-                105px;
-
-            max-width:
-                105px;
-
-            max-height:
-                105px;
-
-            object-fit:
-                cover;
-
-            border-radius:
-                50%;
-
-            display:
-                block;
-
-            margin:
-                0 auto 18px;
-
-            border:
-                2px solid rgba(70,170,255,.9);
-
-            box-shadow:
-                0 10px 30px rgba(0,0,0,.4);
-
-        }
-
-
-        body.purple .person-photo {
-
-            border-color:
-                rgba(207,112,255,.9);
-
-        }
-
-
-        .person-position {
-
-            color:
-                #58adff;
-
-            font-size:
-                12px;
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                1px;
-
-            text-transform:
-                uppercase;
-
-            margin-bottom:
-                7px;
-
-        }
-
-
-        body.purple .person-position {
-
-            color:
-                #d181ff;
-
-        }
-
-
-        .person-name {
-
-            font-size:
-                18px;
-
-            font-weight:
-                700;
-
-        }
-
-
-        .person-info {
-
-            margin-top:
-                15px;
-
-            padding:
-                13px;
-
-            text-align:
-                left;
-
-            border-radius:
-                12px;
-
-            background:
-                rgba(255,255,255,.055);
-
-            border-left:
-                2px solid #3c9fff;
-
-            font-size:
-                12px;
-
-            line-height:
-                1.6;
-
-            color:
-                rgba(255,255,255,.62);
-
-        }
-
-
-        body.purple .person-info {
-
-            border-left-color:
-                #bc5dff;
-
-        }
-
-
-        /* =====================================================
-           PIKET
-        ===================================================== */
-
-        .piket-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(5,1fr);
-
-            gap:
-                15px;
-
-        }
-
-
-        .piket-card {
-
-            padding:
-                18px;
-
-            text-align:
-                center;
-
-        }
-
-
-        .piket-photo {
-
-            width:
-                100%;
-
-            height:
-                150px;
-
-            max-height:
-                150px;
-
-            object-fit:
-                cover;
-
-            border-radius:
-                16px;
-
-            margin-bottom:
-                16px;
-
-            border:
-                1px solid rgba(255,255,255,.15);
-
-        }
-
-
-        .day {
-
-            color:
-                #66b4ff;
-
-            font-weight:
-                800;
-
-            margin-bottom:
-                10px;
-
-        }
-
-
-        body.purple .day {
-
-            color:
-                #d184ff;
-
-        }
-
-
-        .piket-name {
-
-            color:
-                rgba(255,255,255,.63);
-
-            font-size:
-                13px;
-
-            line-height:
-                1.8;
-
-        }
-
-
-        /* =====================================================
-           KEGIATAN
-        ===================================================== */
-
-        .activity-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            gap:
-                18px;
-
-        }
-
-
-        .activity-card {
-
-            overflow:
-                hidden;
-
-        }
-
-
-        .activity-photo {
-
-            width:
-                100%;
-
-            height:
-                220px;
-
-            max-height:
-                220px;
-
-            object-fit:
-                cover;
-
-            display:
-                block;
-
-            transition:
-                .6s cubic-bezier(.2,.8,.2,1);
-
-        }
-
-
-        .activity-card:hover .activity-photo {
-
-            transform:
-                scale(1.06);
-
-        }
-
-
-        .activity-content {
-
-            padding:
-                20px;
-
-        }
-
-
-        .activity-content h3 {
-
-            margin-bottom:
-                7px;
-
-        }
-
-
-        .activity-content p {
-
-            color:
-                rgba(255,255,255,.55);
-
-            font-size:
-                13px;
-
-            line-height:
-                1.6;
-
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        footer {
-
-            text-align:
-                center;
-
-            padding:
-                40px 20px;
-
-            color:
-                rgba(255,255,255,.4);
-
-            font-size:
-                12px;
-
-        }
-
-
-        /* =====================================================
-           RESPONSIVE
-        ===================================================== */
-
-        @media(max-width:900px) {
-
-            .officer-grid {
-
-                grid-template-columns:
-                    repeat(2,1fr);
-
-            }
-
-            .piket-grid {
-
-                grid-template-columns:
-                    repeat(2,1fr);
-
-            }
-
-            .activity-grid {
-
-                grid-template-columns:
-                    repeat(2,1fr);
-
-            }
-
-        }
-
-
-        @media(max-width:650px) {
-
-            .topbar {
-
-                padding:
-                    0 12px;
-
-            }
-
-            .logo {
-
-                font-size:
-                    14px;
-
-            }
-
-            .nav {
-
-                display:
-                    none;
-
-            }
-
-            .page {
-
-                width:
-                    92%;
-
-                padding:
-                    45px 0;
-
-            }
-
-            .menu-grid {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-            .officer-grid {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-            .piket-grid {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-            .activity-grid {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-            .hero h1 {
-
-                letter-spacing:
-                    -2px;
-
-            }
-
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XI TKJ 1 — Class Website</title>
+
+<!--
+===========================================================
+PANDUAN FOTO & GITHUB
+===========================================================
+
+1. Buat folder di repository GitHub:
+   images/
+
+2. Masukkan foto ke folder tersebut, contoh:
+   images/wali-kelas.jpg
+   images/ketua.jpg
+   images/wakil.jpg
+   images/sekretaris1.jpg
+   images/sekretaris2.jpg
+   images/bendahara1.jpg
+   images/bendahara2.jpg
+   images/senin.jpg
+   images/selasa.jpg
+   images/rabu.jpg
+   images/kamis.jpg
+   images/jumat.jpg
+
+3. Nama file harus SAMA PERSIS dengan yang ditulis di HTML.
+   Huruf besar/kecil juga sebaiknya sama.
+
+4. Kalau nama file fotomu berbeda, cukup ubah bagian:
+   src="images/nama-file.jpg"
+
+5. Ukuran foto yang disarankan:
+   - Foto profil: 600 x 600 px (kotak)
+   - Foto kegiatan/piket: 1200 x 800 px (landscape)
+   Website otomatis membatasi ukuran foto agar tidak kebesaran.
+
+6. Untuk GitHub Pages:
+   Upload index.html + folder images ke repository.
+   Lalu buka:
+   Settings → Pages → Deploy from branch → pilih main → Save.
+
+7. Jadwal piket di halaman web sudah diisi berdasarkan pembagian 34 siswa yang kamu kirim.\n\n8. Jangan menghapus folder images jika masih digunakan oleh HTML.
+
+===========================================================
+-->
+
+<style>
+/* =========================================================
+   RESET & ROOT
+   ========================================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-top: #071d42;
+    --bg-mid: #04132d;
+    --bg-bottom: #01050d;
+
+    --accent: #49a9ff;
+    --accent-2: #006dff;
+    --accent-soft: rgba(73,169,255,.18);
+
+    --text: #f7fbff;
+    --muted: rgba(230,239,255,.67);
+
+    --glass: rgba(255,255,255,.075);
+    --glass-strong: rgba(255,255,255,.115);
+    --border: rgba(255,255,255,.15);
+
+    --shadow: rgba(0,0,0,.38);
+
+    --page-speed: .55s;
+}
+
+body.purple {
+    --bg-top: #25083f;
+    --bg-mid: #11051f;
+    --bg-bottom: #030106;
+
+    --accent: #c77cff;
+    --accent-2: #8c25ff;
+    --accent-soft: rgba(199,124,255,.18);
+}
+
+/* =========================================================
+   BODY / GLOBAL BACKGROUND
+   ========================================================= */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--text);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    background:
+        radial-gradient(circle at 15% 15%, var(--accent-soft), transparent 27%),
+        linear-gradient(
+            180deg,
+            var(--bg-top) 0%,
+            var(--bg-mid) 52%,
+            var(--bg-bottom) 100%
+        );
+
+    transition:
+        background .9s ease,
+        color .5s ease;
+}
+
+/* =========================================================
+   ANIMATED BACKGROUND
+   ========================================================= */
+.background-effects {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(75px);
+    opacity: .2;
+    background: var(--accent);
+    animation: orbMove 13s ease-in-out infinite alternate;
+    transition: background .8s ease;
+}
+
+.orb-1 {
+    width: 360px;
+    height: 360px;
+    left: -130px;
+    top: 12%;
+}
+
+.orb-2 {
+    width: 300px;
+    height: 300px;
+    right: -70px;
+    top: 34%;
+    animation-delay: -4s;
+}
+
+.orb-3 {
+    width: 420px;
+    height: 420px;
+    left: 40%;
+    bottom: -260px;
+    animation-delay: -8s;
+}
+
+@keyframes orbMove {
+    0% {
+        transform: translate3d(0,0,0) scale(1);
+    }
+    50% {
+        transform: translate3d(90px,-45px,0) scale(1.12);
+    }
+    100% {
+        transform: translate3d(-40px,75px,0) scale(.92);
+    }
+}
+
+.mist {
+    position: absolute;
+    width: 760px;
+    height: 180px;
+    border-radius: 50%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--accent-soft),
+        transparent
+    );
+    filter: blur(38px);
+    opacity: .7;
+    transform: rotate(-8deg);
+    animation: mistMove 20s linear infinite;
+}
+
+.mist-1 {
+    top: 22%;
+    left: -800px;
+}
+
+.mist-2 {
+    top: 67%;
+    left: -1000px;
+    animation-delay: -9s;
+}
+
+@keyframes mistMove {
+    from {
+        transform: translateX(0) rotate(-8deg);
+    }
+    to {
+        transform: translateX(2300px) rotate(-8deg);
+    }
+}
+
+.particles {
+    position: absolute;
+    inset: 0;
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    animation: particleFloat linear infinite;
+    opacity: .75;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translate3d(0,110vh,0);
+        opacity: 0;
+    }
+    10% {
+        opacity: .8;
+    }
+    90% {
+        opacity: .8;
+    }
+    100% {
+        transform: translate3d(80px,-20vh,0);
+        opacity: 0;
+    }
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 0 28px;
+
+    background: rgba(3,10,22,.68);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow: 0 12px 35px rgba(0,0,0,.18);
+}
+
+.brand {
+    font-weight: 900;
+    letter-spacing: .5px;
+}
+
+.brand span {
+    color: var(--accent);
+    transition: color .5s ease;
+}
+
+.header-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 900;
+    font-size: clamp(15px, 2vw, 21px);
+    white-space: nowrap;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn {
+    border: 1px solid rgba(255,255,255,.15);
+    color: white;
+    background: rgba(255,255,255,.09);
+
+    padding: 10px 17px;
+    border-radius: 12px;
+
+    font-weight: 800;
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.btn:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    box-shadow: 0 0 22px var(--accent-soft);
+}
+
+.btn:active {
+    transform: scale(.91);
+}
+
+.theme-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* =========================================================
+   APP / PAGES
+   ========================================================= */
+main {
+    width: min(1200px, calc(100% - 36px));
+    margin: 0 auto;
+    padding: 60px 0 80px;
+}
+
+.page {
+    display: none;
+    animation: pageIn var(--page-speed) cubic-bezier(.2,.8,.2,1) both;
+}
+
+.page.active {
+    display: block;
+}
+
+.page.exit {
+    animation: pageOut .32s ease both;
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(22px) scale(.985);
+        filter: blur(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes pageOut {
+    to {
+        opacity: 0;
+        transform: translateY(-14px) scale(.985);
+        filter: blur(4px);
+    }
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+    min-height: calc(100vh - 190px);
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    width: min(900px, 100%);
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 14px;
+    border-radius: 999px;
+
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-size: clamp(46px, 8vw, 90px);
+    line-height: .95;
+    letter-spacing: -4px;
+    margin-bottom: 24px;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        var(--accent),
+        #fff
+    );
+
+    background-size: 220% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    animation: titleGradient 5s linear infinite;
+}
+
+@keyframes titleGradient {
+    to {
+        background-position: 220% center;
+    }
+}
+
+.hero p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.home-menu {
+    margin-top: 42px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.menu-card {
+    position: relative;
+    overflow: hidden;
+
+    padding: 24px 18px;
+    border-radius: 22px;
+
+    color: white;
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.12),
+            rgba(255,255,255,.04)
+        );
+
+    border: 1px solid var(--border);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 20px 45px var(--shadow),
+        inset 0 1px rgba(255,255,255,.08);
+
+    transition:
+        transform .4s cubic-bezier(.2,.8,.2,1),
+        box-shadow .4s ease,
+        border-color .4s ease;
+}
+
+.menu-card::before {
+    content: "";
+    position: absolute;
+    inset: -80% 35%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.15),
+        transparent
+    );
+    transform: rotate(20deg);
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+    from {
+        transform: translateX(-180%) rotate(20deg);
+    }
+    to {
+        transform: translateX(180%) rotate(20deg);
+    }
+}
+
+.menu-card:hover {
+    transform: translateY(-10px) scale(1.025);
+    border-color: var(--accent);
+    box-shadow:
+        0 28px 60px var(--shadow),
+        0 0 35px var(--accent-soft);
+}
+
+.menu-card:active {
+    transform: scale(.94);
+}
+
+.menu-icon {
+    position: relative;
+    z-index: 1;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.menu-card h3,
+.menu-card p {
+    position: relative;
+    z-index: 1;
+}
+
+.menu-card h3 {
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.menu-card p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* =========================================================
+   PAGE TITLE
+   ========================================================= */
+.page-heading {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.page-heading h2 {
+    font-size: clamp(34px, 5vw, 58px);
+    letter-spacing: -2px;
+    margin-bottom: 9px;
+}
+
+.page-heading p {
+    color: var(--muted);
+}
+
+/* =========================================================
+   GLASS CARD
+   ========================================================= */
+.glass-card {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.11),
+            rgba(255,255,255,.045)
+        );
+
+    border: 1px solid var(--border);
+    border-radius: 24px;
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 22px 55px var(--shadow),
+        inset 0 1px rgba(255,255,255,.08);
+
+    transition:
+        transform .45s cubic-bezier(.2,.8,.2,1),
+        box-shadow .45s ease,
+        border-color .45s ease;
+}
+
+.glass-card::before {
+    content: "";
+    position: absolute;
+    top: -30%;
+    left: -60%;
+    width: 45%;
+    height: 170%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.12),
+        transparent
+    );
+
+    transform: rotate(18deg);
+    transition: left .8s ease;
+    pointer-events: none;
+}
+
+.glass-card:hover::before {
+    left: 125%;
+}
+
+.glass-card:hover {
+    transform: translateY(-9px);
+    border-color: var(--accent);
+    box-shadow:
+        0 30px 70px var(--shadow),
+        0 0 35px var(--accent-soft);
+}
+
+.glass-card:active {
+    transform: scale(.965);
+}
+
+/* =========================================================
+   ORGANIZATION
+   ========================================================= */
+.wali-card {
+    width: min(560px, 100%);
+    margin: 0 auto 24px;
+    padding: 28px;
+    text-align: center;
+}
+
+.org-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.person-card {
+    padding: 23px 18px;
+    text-align: center;
+}
+
+.profile-photo {
+    width: 105px;
+    height: 105px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 16px;
+
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+
+    box-shadow:
+        0 0 0 6px var(--accent-soft),
+        0 12px 28px rgba(0,0,0,.35);
+
+    transition:
+        transform .45s ease,
+        filter .45s ease;
+}
+
+.person-card:hover .profile-photo,
+.wali-card:hover .profile-photo {
+    transform: scale(1.08) rotate(1deg);
+    filter: brightness(1.08);
+}
+
+.role {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+.person-name {
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.desc {
+    margin-top: 14px;
+    padding: 13px;
+    text-align: left;
+
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.65;
+
+    border-left: 3px solid var(--accent);
+    background: rgba(255,255,255,.055);
+    border-radius: 0 12px 12px 0;
+}
+
+/* =========================================================
+   PIKET
+   ========================================================= */
+.piket-board {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(205px, 1fr));
+    gap: 16px;
+    align-items: start;
+}
+
+.piket-card {
+    position: relative;
+    min-height: 560px;
+    padding: 12px;
+    border-radius: 24px;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.12),
+            rgba(255,255,255,.045)
+        );
+
+    border: 1px solid var(--border);
+
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+
+    box-shadow:
+        0 20px 50px var(--shadow),
+        inset 0 1px rgba(255,255,255,.08);
+
+    transition:
+        transform .45s cubic-bezier(.2,.8,.2,1),
+        box-shadow .45s ease,
+        border-color .45s ease;
+}
+
+.piket-card::after {
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    top: -105px;
+    right: -80px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    filter: blur(40px);
+    transition: .5s ease;
+    pointer-events: none;
+}
+
+.piket-card:hover {
+    transform: translateY(-12px) scale(1.025);
+    border-color: var(--accent);
+    box-shadow:
+        0 30px 70px var(--shadow),
+        0 0 35px var(--accent-soft);
+}
+
+.piket-card:hover::after {
+    width: 280px;
+    height: 280px;
+}
+
+.piket-card:active {
+    transform: scale(.94);
+}
+
+.piket-head {
+    position: relative;
+    z-index: 2;
+    min-height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 4px 6px 10px;
+}
+
+.piket-head > div {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.day {
+    display: inline-block;
+    padding: 7px 11px;
+    border-radius: 30px;
+
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.count {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.day-icon {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+.piket-photo {
+    width: 100%;
+    height: 145px;
+    object-fit: cover;
+    display: block;
+    border-radius: 17px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(255,255,255,.15);
+    box-shadow: 0 12px 30px rgba(0,0,0,.35);
+    transition: transform .6s ease, filter .5s ease;
+}
+
+.piket-card:hover .piket-photo {
+    transform: scale(1.035);
+    filter: brightness(1.08);
+}
+
+.piket-list {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 6px;
+}
+
+.piket-list div {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    align-items: start;
+    gap: 5px;
+
+    padding: 8px 7px;
+    border-radius: 10px;
+
+    color: var(--muted);
+    background: rgba(255,255,255,.035);
+    border: 1px solid transparent;
+
+    font-size: 11.5px;
+    line-height: 1.35;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        border-color .25s ease;
+}
+
+.piket-list div > span {
+    color: rgba(245,250,255,.88);
+}
+
+.piket-list div::first-letter {
+    color: var(--accent);
+}
+
+.piket-list div:hover {
+    transform: translateX(5px);
+    background: var(--accent-soft);
+    border-color: rgba(255,255,255,.09);
+}
+
+.piket-note {
+    margin: 22px auto 0;
+    width: min(780px, 100%);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 18px;
+}
+
+.piket-note > span {
+    font-size: 25px;
+    color: var(--accent);
+}
+
+.piket-note b {
+    font-size: 13px;
+}
+
+.piket-note p {
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.piket-note code {
+    color: var(--accent);
+}
+
+/* =========================================================
+   KEGIATAN
+   ========================================================= */
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.activity-card {
+    overflow: hidden;
+}
+
+.activity-photo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: transform .7s ease;
+}
+
+.activity-card:hover .activity-photo {
+    transform: scale(1.06);
+}
+
+.activity-content {
+    padding: 20px;
+}
+
+.activity-content h3 {
+    margin-bottom: 10px;
+}
+
+.activity-content p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 13px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer {
+    text-align: center;
+    padding: 20px 20px 35px;
+    color: rgba(255,255,255,.45);
+    font-size: 12px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1000px) {
+    .home-menu {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .org-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .piket-board {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+    }
+
+    .activity-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .header {
+        height: 64px;
+        padding: 0 12px;
+    }
+
+    .brand {
+        font-size: 13px;
+    }
+
+    .header-title {
+        display: none;
+    }
+
+    .btn {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    main {
+        width: min(100% - 24px, 1200px);
+        padding-top: 38px;
+    }
+
+    .hero {
+        min-height: calc(100vh - 150px);
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .home-menu,
+    .org-grid,
+    .activity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .piket-board {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 4px 4px 18px;
+        scrollbar-width: thin;
+    }
+
+    .piket-card {
+        flex: 0 0 min(82vw, 310px);
+        min-height: 540px;
+        scroll-snap-align: center;
+    }
+
+    .profile-photo {
+        width: 95px;
+        height: 95px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
 </head>
-
 
 <body>
 
+<!-- =======================================================
+     BACKGROUND EFFECTS
+     ======================================================= -->
+<div class="background-effects">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
 
-    <!-- =====================================================
-         TOP BAR
-         ===================================================== -->
+    <div class="mist mist-1"></div>
+    <div class="mist mist-2"></div>
 
-    <nav class="topbar">
+    <div class="particles" id="particles"></div>
+</div>
 
-        <div class="logo">
-            XI <span>TKJ 1</span>
+<!-- =======================================================
+     HEADER
+     ======================================================= -->
+<header class="header">
+    <button class="btn" onclick="goHome()">← Beranda</button>
+
+    <div class="header-title" id="headerTitle">
+        XI TKJ 1
+    </div>
+
+    <button class="btn theme-btn" onclick="toggleTheme()" id="themeButton">
+        🌙 <span>Mode</span>
+    </button>
+</header>
+
+<main>
+
+<!-- =======================================================
+     HALAMAN 1 — BERANDA
+     ======================================================= -->
+<section class="page active" id="home">
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ✦ WEBSITE KELAS XI TKJ 1
+            </div>
+
+            <h1>
+                Selamat Datang<br>
+                di Kelas XI TKJ 1
+            </h1>
+
+            <p>
+                Satu ruang digital untuk mengenal pengurus kelas,
+                melihat jadwal piket, mengabadikan kegiatan,
+                dan menyimpan cerita perjalanan kelas XI TKJ 1.
+            </p>
+
+            <div class="home-menu">
+
+                <button class="menu-card" onclick="showPage('pengurus')">
+                    <div class="menu-icon">👥</div>
+                    <h3>Pengurus Kelas</h3>
+                    <p>Wali kelas dan 6 pengurus</p>
+                </button>
+
+                <button class="menu-card" onclick="showPage('piket')">
+                    <div class="menu-icon">🧹</div>
+                    <h3>Piket Kelas</h3>
+                    <p>Jadwal piket Senin–Jumat</p>
+                </button>
+
+                <button class="menu-card" onclick="showPage('kegiatan')">
+                    <div class="menu-icon">📸</div>
+                    <h3>Kegiatan Kelas</h3>
+                    <p>Dokumentasi kegiatan kelas</p>
+                </button>
+
+                <button class="menu-card" onclick="showPage('pengurus')">
+                    <div class="menu-icon">✨</div>
+                    <h3>Struktur Kelas</h3>
+                    <p>Lihat susunan organisasi kelas</p>
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- =======================================================
+     HALAMAN 2 — PENGURUS
+     ======================================================= -->
+<section class="page" id="pengurus">
+
+    <div class="page-heading">
+        <h2>Struktur Organisasi</h2>
+        <p>XI TKJ 1 • Wali Kelas & Pengurus Kelas</p>
+    </div>
+
+    <!-- WALI KELAS -->
+    <div class="glass-card wali-card">
+
+        <img
+            class="profile-photo"
+            src="images/wali-kelas.jpg"
+            alt="Foto Wali Kelas"
+            onerror="this.src='https://placehold.co/600x600/0b1d3a/ffffff?text=Wali+Kelas';"
+        >
+
+        <div class="role">WALI KELAS</div>
+
+        <div class="person-name">
+            Nama Wali Kelas
         </div>
 
-
-        <div class="nav">
-
-            <button
-                class="nav-btn active"
-                data-page="home">
-                Beranda
-            </button>
-
-            <button
-                class="nav-btn"
-                data-page="pengurus">
-                Pengurus
-            </button>
-
-            <button
-                class="nav-btn"
-                data-page="piket">
-                Piket
-            </button>
-
-            <button
-                class="nav-btn"
-                data-page="kegiatan">
-                Kegiatan
-            </button>
-
+        <div class="desc">
+            <b>Tugas & Tanggung Jawab:</b><br>
+            Membina, membimbing, dan mengawasi seluruh kegiatan
+            kelas serta menjadi penghubung antara siswa, sekolah,
+            dan orang tua.
         </div>
 
+    </div>
 
-        <button
-            class="theme-button"
-            id="themeButton">
+    <!-- 6 PENGURUS -->
+    <div class="org-grid">
 
-            🌙 Tema
+        <article class="glass-card person-card">
+            <img class="profile-photo"
+                 src="images/ketua.jpg"
+                 alt="Ketua Kelas"
+                 onerror="this.src='https://placehold.co/600x600/0b1d3a/ffffff?text=Ketua';">
 
-        </button>
+            <div class="role">KETUA KELAS</div>
+            <div class="person-name">Nama Ketua</div>
 
-    </nav>
+            <div class="desc">
+                <b>Tugas & Tanggung Jawab:</b><br>
+                Memimpin dan mengoordinasikan kegiatan kelas,
+                menjaga ketertiban, serta menjadi penghubung
+                siswa dengan wali kelas.
+            </div>
+        </article>
 
+        <article class="glass-card person-card">
+            <img class="profile-photo"
+                 src="images/wakil.jpg"
+                 alt="Wakil Ketua"
+                 onerror="this.src='https://placehold.co/600x600/0b1d3a/ffffff?text=Wakil';">
 
+            <div class="role">WAKIL KETUA</div>
+            <div class="person-name">Nama Wakil</div>
 
-    <!-- =====================================================
-         HALAMAN 1 — BERANDA
-         ===================================================== -->
+            <div class="desc">
+                <b>Tugas & Tanggung Jawab:</b><br>
+                Membantu ketua menjalankan program kerja dan
+                menggantikan ketua ketika berhalangan.
+            </div>
+        </article>
 
-    <main
-        id="home"
-        class="page active">
+        <article class="glass-card person-card">
+            <img class="profile-photo"
+                 src="images/sekretaris1.jpg"
+                 alt="Sekretaris 1"
+                 onerror="this.src='https://placehold.co/600x600/0b1d3a/ffffff?text=Sekretaris+1';">
 
+            <div class="role">SEKRETARIS 1</div>
+            <div class="person-name">Nama Sekretaris 1</div>
 
-        <section class="hero">
+            <div class="desc">
+                <b>Tugas & Tanggung Jawab:</b><br>
+                Mencatat administrasi kelas, membuat notulen,
+                dan mengelola data kegiatan kelas.
+            </div>
+        </article>
 
-            <div class="hero-content">
+        <article class="glass-card person-card">
+            <img class="profile-photo"
+                 src="images/sekretaris2.jpg"
+                 alt="Sekretaris 2"
+                 onerror="this.src='https://placehold.co/600x600/0b1d3a/ffffff?text=Sekretaris+2';">
 
+            <div class="role">SEKRETARIS 2</div>
+            <div class="person-name">Nama Sekretaris 2</div>
 
-                <div class="hero-badge">
-                    🖥️ Kelas Teknik Komputer & Jaringan
+            <div class="desc">
+                <b>Tugas & Tanggung Jawab:</b><br>
+                Membantu sekretaris 1 dalam administrasi,
+                arsip, dan dokumentasi kelas.
+            </div>
+        </article>
+
+        <article class="glass-card person-card">
+            <img class="profile-photo"
+                 src="images/bendahara1.jpg"
+                 alt="Bendahara 1"
+                 onerror="this.src='https://placehold.co/600x600/0b1d3a/ffffff?text=Bendahara+1';">
+
+            <div class="role">BENDAHARA 1</div>
+            <div class="person-name">Nama Bendahara 1</div>
+
+            <div class="desc">
+                <b>Tugas & Tanggung Jawab:</b><br>
+                Mengelola pemasukan dan pengeluaran uang kelas
+                serta membuat catatan keuangan.
+            </div>
+        </article>
+
+        <article class="glass-card person-card">
+            <img class="profile-photo"
+                 src="images/bendahara2.jpg"
+                 alt="Bendahara 2"
+                 onerror="this.src='https://placehold.co/600x600/0b1d3a/ffffff?text=Bendahara+2';">
+
+            <div class="role">BENDAHARA 2</div>
+            <div class="person-name">Nama Bendahara 2</div>
+
+            <div class="desc">
+                <b>Tugas & Tanggung Jawab:</b><br>
+                Membantu bendahara 1 mengelola keuangan
+                dan memastikan pencatatan tetap rapi.
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- =======================================================
+     HALAMAN 3 — PIKET
+     ======================================================= -->
+<section class="page" id="piket">
+
+    <div class="page-heading">
+        <div class="badge">🧹 JADWAL KEBERSIHAN XI TKJ 1</div>
+        <h2>Jadwal Piket Kelas</h2>
+        <p>Senin — Jumat • 34 siswa • Bersih, kompak, dan bertanggung jawab</p>
+    </div>
+
+    <div class="piket-board">
+
+        <!-- SENIN -->
+        <article class="piket-card">
+            <div class="piket-head">
+                <div>
+                    <span class="day">SENIN</span>
+                    <span class="count">7 siswa</span>
                 </div>
+                <span class="day-icon">☀️</span>
+            </div>
 
+            <img class="piket-photo"
+                 src="images/senin.jpg"
+                 alt="Foto piket Senin"
+                 onerror="this.src='https://placehold.co/1200x800/0b1d3a/ffffff?text=Foto+Senin?+Kerja oi';">
 
-                <h1>
-                    Selamat Datang<br>
-                    di XI TKJ 1
-                </h1>
+            <div class="piket-list">
+                <div>01 <span>Muhammad Ridhlo Maulana Akbar</span></div>
+                <div>02 <span>M. Devan Abdika Bangsa</span></div>
+                <div>03 <span>Fabrianz Torino Putranzah</span></div>
+                <div>04 <span>Ahmad Zidan Alfadly</span></div>
+                <div>05 <span>Ascha Bryan Firdaus</span></div>
+                <div>06 <span>Ahmad Khubaisy Muhsinin</span></div>
+                <div>07 <span>Juan Dzakwan Hisyam</span></div>
+            </div>
+        </article>
 
+        <!-- SELASA -->
+        <article class="piket-card">
+            <div class="piket-head">
+                <div>
+                    <span class="day">SELASA</span>
+                    <span class="count">7 siswa</span>
+                </div>
+                <span class="day-icon">🌤️</span>
+            </div>
 
+            <img class="piket-photo"
+                 src="images/selasa.jpg"
+                 alt="Foto piket Selasa"
+                 onerror="this.src='https://placehold.co/1200x800/0b1d3a/ffffff?text=Foto+Selasa';">
+
+            <div class="piket-list">
+                <div>01 <span>Silva Talitha Dzakira</span></div>
+                <div>02 <span>Fizza Fahrian Dwidama</span></div>
+                <div>03 <span>Muhammad Farid Byantara Kusuma</span></div>
+                <div>04 <span>Khalil Azzam Mudji Maulinda</span></div>
+                <div>05 <span>Nico Putra Pramana</span></div>
+                <div>06 <span>Muhammad Akbar Brilian</span></div>
+                <div>07 <span>Ahmad Sony Fahreza</span></div>
+            </div>
+        </article>
+
+        <!-- RABU -->
+        <article class="piket-card">
+            <div class="piket-head">
+                <div>
+                    <span class="day">RABU</span>
+                    <span class="count">7 siswa</span>
+                </div>
+                <span class="day-icon">🌥️</span>
+            </div>
+
+            <img class="piket-photo"
+                 src="images/rabu.jpg"
+                 alt="Foto piket Rabu"
+                 onerror="this.src='https://placehold.co/1200x800/0b1d3a/ffffff?text=Foto+Rabu';">
+
+            <div class="piket-list">
+                <div>01 <span>Naura Yuwan Ramandhita</span></div>
+                <div>02 <span>Nadine Anindya Alfian Putri</span></div>
+                <div>03 <span>Amelia Fransiska Dyah C</span></div>
+                <div>04 <span>Reyghen Ethan Bradly Simanjuntak</span></div>
+                <div>05 <span>Theodorius Adi Fatolon</span></div>
+                <div>06 <span>Calya Aqila Al Mouzavie</span></div>
+                <div>07 <span>Muhammad Yafiq Nadim Rafif</span></div>
+            </div>
+        </article>
+
+        <!-- KAMIS -->
+        <article class="piket-card">
+            <div class="piket-head">
+                <div>
+                    <span class="day">KAMIS</span>
+                    <span class="count">7 siswa</span>
+                </div>
+                <span class="day-icon">🌤️</span>
+            </div>
+
+            <img class="piket-photo"
+                 src="images/kamis.jpg"
+                 alt="Foto piket Kamis"
+                 onerror="this.src='https://placehold.co/1200x800/0b1d3a/ffffff?text=Foto+Kamis';">
+
+            <div class="piket-list">
+                <div>01 <span>Ayyub</span></div>
+                <div>02 <span>Ajeng Ayu Siswati</span></div>
+                <div>03 <span>Dhaniel Wahyu Bahtiar</span></div>
+                <div>04 <span>Ken Kanzan Makhfiyan</span></div>
+                <div>05 <span>Baskoro Gadang Widhyodono</span></div>
+                <div>06 <span>Raditya Satrio Abimanyu</span></div>
+                <div>07 <span>Fari Itha A.S. Sarrin</span></div>
+            </div>
+        </article>
+
+        <!-- JUMAT -->
+        <article class="piket-card">
+            <div class="piket-head">
+                <div>
+                    <span class="day">JUMAT</span>
+                    <span class="count">6 siswa</span>
+                </div>
+                <span class="day-icon">☀️</span>
+            </div>
+
+            <img class="piket-photo"
+                 src="images/jumat.jpg"
+                 alt="Foto piket Jumat"
+                 onerror="this.src='https://placehold.co/1200x800/0b1d3a/ffffff?text=Foto+Jumat';">
+
+            <div class="piket-list">
+                <div>01 <span>Zidni Nuro M</span></div>
+                <div>02 <span>Dwi Affandy</span></div>
+                <div>03 <span>Lintang Albrian Anwar</span></div>
+                <div>04 <span>Zanuar Eka Prasetya</span></div>
+                <div>05 <span>Queensha Aurellia</span></div>
+                <div>06 <span>Jhon Terry Eka Ramadhani</span></div>
+            </div>
+        </article>
+
+    </div>
+
+    <div class="piket-note glass-card">
+        <span>✦</span>
+        <div>
+            <b>Catatan Piket</b>
+            <p>Foto tiap hari bisa kamu ganti sendiri melalui folder <code>images/</code>. Ukuran foto otomatis dibatasi agar tetap rapi.</p>
+        </div>
+    </div>
+
+</section>
+
+<!-- =======================================================
+     HALAMAN 4 — KEGIATAN
+     ======================================================= -->
+<section class="page" id="kegiatan">
+
+    <div class="page-heading">
+        <h2>Kegiatan Kelas</h2>
+        <p>Kumpulan dokumentasi dan momen XI TKJ 1</p>
+    </div>
+
+    <div class="activity-grid">
+
+        <article class="glass-card activity-card">
+            <img class="activity-photo"
+                 src="images/persiapan17san1.jpeg"
+                 alt="Kegiatan Kelas 1"
+                 onerror="this.src='https://placehold.co/1200x800/0b1d3a/ffffff?text=Kegiatan+1';">
+
+            <div class="activity-content">
+                <h3>Kegiatan Kelas</h3>
                 <p>
-
-                    Tempat kami belajar,
-                    berkembang, berkreasi,
-                    dan membangun kebersamaan
-                    sebagai satu kelas.
-
+                    Tambahkan foto kegiatan kelas dan tuliskan
+                    keterangan singkat di bagian ini.
                 </p>
-
-
-                <div class="menu-grid">
-
-
-                    <div
-                        class="menu-card"
-                        data-target="pengurus">
-
-                        <div class="menu-icon">
-                            👥
-                        </div>
-
-                        <h3>
-                            Pengurus Kelas
-                        </h3>
-
-                        <p>
-                            Lihat struktur organisasi
-                            dan pengurus XI TKJ 1.
-                        </p>
-
-                        <div class="arrow">
-                            →
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="menu-card"
-                        data-target="piket">
-
-                        <div class="menu-icon">
-                            🧹
-                        </div>
-
-                        <h3>
-                            Piket Kelas
-                        </h3>
-
-                        <p>
-                            Lihat jadwal piket
-                            Senin sampai Jumat.
-                        </p>
-
-                        <div class="arrow">
-                            →
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="menu-card"
-                        data-target="kegiatan">
-
-                        <div class="menu-icon">
-                            📸
-                        </div>
-
-                        <h3>
-                            Kegiatan Kelas
-                        </h3>
-
-                        <p>
-                            Dokumentasi kegiatan
-                            dan momen kelas.
-                        </p>
-
-                        <div class="arrow">
-                            →
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="menu-card"
-                        data-target="pengurus">
-
-                        <div class="menu-icon">
-                            💻
-                        </div>
-
-                        <h3>
-                            XI TKJ 1
-                        </h3>
-
-                        <p>
-                            Kompak, kreatif,
-                            disiplin, dan siap berkembang.
-                        </p>
-
-                        <div class="arrow">
-                            →
-                        </div>
-
-                    </div>
-
-
-                </div>
-
             </div>
+        </article>
 
-        </section>
+        <article class="glass-card activity-card">
+            <img class="activity-photo"
+                 src="images/persiapan17san.jpeg"
+                 alt="Kegiatan Kelas 2"
+                 onerror="this.src='https://placehold.co/1200x800/0b1d3a/ffffff?text=Kegiatan+2';">
 
-    </main>
-
-
-
-    <!-- =====================================================
-         HALAMAN 2 — PENGURUS
-         ===================================================== -->
-
-    <main
-        id="pengurus"
-        class="page">
-
-
-        <div class="page-title">
-
-            <h2>
-                Struktur Pengurus Kelas
-            </h2>
-
-            <p>
-                XI TKJ 1
-            </p>
-
-        </div>
-
-
-        <!-- WALI KELAS -->
-
-        <div class="glass wali-card">
-
-            <div class="person-card">
-
-                <img
-                    class="person-photo"
-                    src="images/wali.jpg"
-                    alt="Wali Kelas">
-
-                <div class="person-position">
-                    Wali Kelas
-                </div>
-
-                <div class="person-name">
-                    Nama Wali Kelas
-                </div>
-
-                <div class="person-info">
-
-                    <b>Tugas & Tanggung Jawab:</b>
-
-                    <br>
-
-                    Membina, membimbing,
-                    dan mengawasi seluruh
-                    kegiatan kelas XI TKJ 1.
-
-                </div>
-
+            <div class="activity-content">
+                <h3>Momen Bersama</h3>
+                <p>
+                    Dokumentasi kegiatan, tugas, lomba,
+                    atau momen kebersamaan kelas.
+                </p>
             </div>
+        </article>
 
-        </div>
+        <article class="glass-card activity-card">
+            <img class="activity-photo"
+                 src="images/Upacara.jpeg"
+                 alt="Kegiatan Kelas 3"
+                 onerror="this.src='https://placehold.co/1200x800/0b1d3a/ffffff?text=Kegiatan+3';">
 
-
-        <!-- 6 PENGURUS -->
-
-        <div class="officer-grid">
-
-
-            <!-- KETUA -->
-
-            <div class="glass person-card">
-
-                <img
-                    class="person-photo"
-                    src="images/ketua.jpg"
-                    alt="Ketua Kelas">
-
-                <div class="person-position">
-                    Ketua Kelas
-                </div>
-
-                <div class="person-name">
-                    Nama Ketua
-                </div>
-
-                <div class="person-info">
-
-                    <b>Tugas:</b><br>
-
-                    Memimpin dan
-                    mengoordinasikan
-                    kegiatan kelas.
-
-                </div>
-
+            <div class="activity-content">
+                <h3>Kenangan XI TKJ 1</h3>
+                <p>
+                    Jadikan halaman ini sebagai album digital
+                    perjalanan kelas selama satu tahun.
+                </p>
             </div>
+        </article>
 
+    </div>
+</section>
 
-            <!-- WAKIL -->
+</main>
 
-            <div class="glass person-card">
+<footer class="footer">
+    XI TKJ 1 • Class Website • Piket • Pengurus • Kegiatan • Kenangan Kelas
+</footer>
 
-                <img
-                    class="person-photo"
-                    src="images/wakil.jpg"
-                    alt="Wakil Ketua">
+<script>
+/* =========================================================
+   BACKGROUND PARTICLES
+   ========================================================= */
+const particleContainer = document.getElementById("particles");
 
-                <div class="person-position">
-                    Wakil Ketua
-                </div>
+for (let i = 0; i < 55; i++) {
+    const particle = document.createElement("span");
 
-                <div class="person-name">
-                    Nama Wakil
-                </div>
+    particle.className = "particle";
 
-                <div class="person-info">
+    particle.style.left = Math.random() * 100 + "%";
+    particle.style.animationDuration =
+        (8 + Math.random() * 16) + "s";
+    particle.style.animationDelay =
+        (-Math.random() * 18) + "s";
 
-                    <b>Tugas:</b><br>
+    const size = 1 + Math.random() * 3;
 
-                    Membantu ketua
-                    dalam menjalankan
-                    kegiatan kelas.
+    particle.style.width = size + "px";
+    particle.style.height = size + "px";
 
-                </div>
+    particleContainer.appendChild(particle);
+}
 
-            </div>
+/* =========================================================
+   THEME
+   Tema tersimpan di browser sehingga saat pindah halaman
+   tetap menggunakan tema yang sama.
+   ========================================================= */
+const savedTheme = localStorage.getItem("xi-tkj-theme");
 
+if (savedTheme === "purple") {
+    document.body.classList.add("purple");
+}
 
-            <!-- SEKRETARIS 1 -->
+function updateThemeButton() {
+    const button = document.getElementById("themeButton");
 
-            <div class="glass person-card">
+    if (document.body.classList.contains("purple")) {
+        button.innerHTML = "🔵 <span>Biru</span>";
+    } else {
+        button.innerHTML = "🟣 <span>Ungu</span>";
+    }
+}
 
-                <img
-                    class="person-photo"
-                    src="images/sekretaris1.jpg"
-                    alt="Sekretaris 1">
+updateThemeButton();
 
-                <div class="person-position">
-                    Sekretaris 1
-                </div>
+function toggleTheme() {
+    document.body.classList.toggle("purple");
 
-                <div class="person-name">
-                    Nama Sekretaris 1
-                </div>
+    const theme =
+        document.body.classList.contains("purple")
+            ? "purple"
+            : "blue";
 
-                <div class="person-info">
+    localStorage.setItem("xi-tkj-theme", theme);
 
-                    <b>Tugas:</b><br>
+    updateThemeButton();
+}
 
-                    Mengatur administrasi
-                    dan pencatatan kelas.
+/* =========================================================
+   PAGE NAVIGATION
+   ========================================================= */
+const pageNames = {
+    home: "XI TKJ 1",
+    pengurus: "Struktur Organisasi",
+    piket: "Jadwal Piket Kelas",
+    kegiatan: "Kegiatan Kelas"
+};
 
-                </div>
+let currentPage = "home";
 
-            </div>
+function showPage(pageId) {
 
+    if (pageId === currentPage) {
+        return;
+    }
 
-            <!-- SEKRETARIS 2 -->
+    const current = document.getElementById(currentPage);
+    const next = document.getElementById(pageId);
 
-            <div class="glass person-card">
+    if (!next) {
+        return;
+    }
 
-                <img
-                    class="person-photo"
-                    src="images/sekretaris2.jpg"
-                    alt="Sekretaris 2">
+    current.classList.add("exit");
 
-                <div class="person-position">
-                    Sekretaris 2
-                </div>
+    setTimeout(() => {
 
-                <div class="person-name">
-                    Nama Sekretaris 2
-                </div>
+        current.classList.remove("active", "exit");
+        next.classList.add("active");
 
-                <div class="person-info">
+        currentPage = pageId;
 
-                    <b>Tugas:</b><br>
+        document.getElementById("headerTitle").textContent =
+            pageNames[pageId] || "XI TKJ 1";
 
-                    Membantu sekretaris
-                    dalam administrasi kelas.
-
-                </div>
-
-            </div>
-
-
-            <!-- BENDAHARA 1 -->
-
-            <div class="glass person-card">
-
-                <img
-                    class="person-photo"
-                    src="images/bendahara1.jpg"
-                    alt="Bendahara 1">
-
-                <div class="person-position">
-                    Bendahara 1
-                </div>
-
-                <div class="person-name">
-                    Nama Bendahara 1
-                </div>
-
-                <div class="person-info">
-
-                    <b>Tugas:</b><br>
-
-                    Mengelola dan
-                    mencatat keuangan kelas.
-
-                </div>
-
-            </div>
-
-
-            <!-- BENDAHARA 2 -->
-
-            <div class="glass person-card">
-
-                <img
-                    class="person-photo"
-                    src="images/bendahara2.jpg"
-                    alt="Bendahara 2">
-
-                <div class="person-position">
-                    Bendahara 2
-                </div>
-
-                <div class="person-name">
-                    Nama Bendahara 2
-                </div>
-
-                <div class="person-info">
-
-                    <b>Tugas:</b><br>
-
-                    Membantu bendahara
-                    dalam pengelolaan keuangan.
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </main>
-
-
-
-    <!-- =====================================================
-         HALAMAN 3 — PIKET
-         ===================================================== -->
-
-    <main
-        id="piket"
-        class="page">
-
-
-        <div class="page-title">
-
-            <h2>
-                Jadwal Piket Kelas
-            </h2>
-
-            <p>
-                Senin — Jumat
-            </p>
-
-        </div>
-
-
-        <div class="piket-grid">
-
-
-            <!-- SENIN -->
-
-            <div class="glass piket-card">
-
-                <img
-                    class="piket-photo"
-                    src="images/senin.jpg"
-                    alt="Piket Senin">
-
-                <div class="day">
-                    SENIN
-                </div>
-
-                <div class="piket-name">
-
-                    Nama Siswa 1<br>
-                    Nama Siswa 2<br>
-                    Nama Siswa 3
-
-                </div>
-
-            </div>
-
-
-            <!-- SELASA -->
-
-            <div class="glass piket-card">
-
-                <img
-                    class="piket-photo"
-                    src="images/selasa.jpg"
-                    alt="Piket Selasa">
-
-                <div class="day">
-                    SELASA
-                </div>
-
-                <div class="piket-name">
-
-                    Nama Siswa 4<br>
-                    Nama Siswa 5<br>
-                    Nama Siswa 6
-
-                </div>
-
-            </div>
-
-
-            <!-- RABU -->
-
-            <div class="glass piket-card">
-
-                <img
-                    class="piket-photo"
-                    src="images/rabu.jpg"
-                    alt="Piket Rabu">
-
-                <div class="day">
-                    RABU
-                </div>
-
-                <div class="piket-name">
-
-                    Nama Siswa 7<br>
-                    Nama Siswa 8<br>
-                    Nama Siswa 9
-
-                </div>
-
-            </div>
-
-
-            <!-- KAMIS -->
-
-            <div class="glass piket-card">
-
-                <img
-                    class="piket-photo"
-                    src="images/kamis.jpg"
-                    alt="Piket Kamis">
-
-                <div class="day">
-                    KAMIS
-                </div>
-
-                <div class="piket-name">
-
-                    Nama Siswa 10<br>
-                    Nama Siswa 11<br>
-                    Nama Siswa 12
-
-                </div>
-
-            </div>
-
-
-            <!-- JUMAT -->
-
-            <div class="glass piket-card">
-
-                <img
-                    class="piket-photo"
-                    src="images/jumat.jpg"
-                    alt="Piket Jumat">
-
-                <div class="day">
-                    JUMAT
-                </div>
-
-                <div class="piket-name">
-
-                    Nama Siswa 13<br>
-                    Nama Siswa 14<br>
-                    Nama Siswa 15
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </main>
-
-
-
-    <!-- =====================================================
-         HALAMAN 4 — KEGIATAN
-         ===================================================== -->
-
-    <main
-        id="kegiatan"
-        class="page">
-
-
-        <div class="page-title">
-
-            <h2>
-                Kegiatan Kelas
-            </h2>
-
-            <p>
-                Dokumentasi kebersamaan XI TKJ 1
-            </p>
-
-        </div>
-
-
-        <div class="activity-grid">
-
-
-            <div class="glass activity-card">
-
-                <img
-                    class="activity-photo"
-                    src="images/kegiatan1.jpg"
-                    alt="Kegiatan Kelas">
-
-                <div class="activity-content">
-
-                    <h3>
-                        Kegiatan Kelas
-                    </h3>
-
-                    <p>
-                        Dokumentasi kegiatan
-                        XI TKJ 1.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="glass activity-card">
-
-                <img
-                    class="activity-photo"
-                    src="images/kegiatan2.jpg"
-                    alt="Kegiatan Kelas">
-
-                <div class="activity-content">
-
-                    <h3>
-                        Kebersamaan
-                    </h3>
-
-                    <p>
-                        Momen kebersamaan
-                        siswa XI TKJ 1.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="glass activity-card">
-
-                <img
-                    class="activity-photo"
-                    src="images/kegiatan3.jpg"
-                    alt="Kegiatan Kelas">
-
-                <div class="activity-content">
-
-                    <h3>
-                        Dokumentasi
-                    </h3>
-
-                    <p>
-                        Kumpulan momen
-                        dan aktivitas kelas.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </main>
-
-
-
-    <!-- =====================================================
-         FOOTER
-         ===================================================== -->
-
-    <footer>
-
-        © 2026 XI TKJ 1
-        <br>
-        Belajar • Berkarya • Bersama
-
-    </footer>
-
-
-
-    <script>
-
-
-        /* =====================================================
-           PINDAH HALAMAN
-        ===================================================== */
-
-        const pages =
-            document.querySelectorAll(".page");
-
-        const navButtons =
-            document.querySelectorAll(".nav-btn");
-
-
-        function showPage(pageId) {
-
-
-            pages.forEach(page => {
-
-                page.classList.remove("active");
-
-            });
-
-
-            const target =
-                document.getElementById(pageId);
-
-
-            if (target) {
-
-                target.classList.add("active");
-
-            }
-
-
-            navButtons.forEach(button => {
-
-                button.classList.remove("active");
-
-                if (
-                    button.dataset.page === pageId
-                ) {
-
-                    button.classList.add("active");
-
-                }
-
-            });
-
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
-
-
-
-        /* =====================================================
-           MENU CARD
-        ===================================================== */
-
-        document
-            .querySelectorAll(".menu-card")
-            .forEach(card => {
-
-                card.addEventListener(
-                    "click",
-                    () => {
-
-                        showPage(
-                            card.dataset.target
-                        );
-
-                    }
-                );
-
-            });
-
-
-
-        /* =====================================================
-           NAVIGATION
-        ===================================================== */
-
-        navButtons.forEach(button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    showPage(
-                        button.dataset.page
-                    );
-
-                }
-            );
-
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
         });
 
+    }, 300);
+}
 
+function goHome() {
+    showPage("home");
+}
 
-        /* =====================================================
-           THEME
-           DISIMPAN KE LOCAL STORAGE
-        ===================================================== */
+/* =========================================================
+   KEYBOARD SHORTCUT
+   ========================================================= */
+document.addEventListener("keydown", (event) => {
 
-        const themeButton =
-            document.getElementById(
-                "themeButton"
-            );
+    if (event.key === "Escape") {
+        goHome();
+    }
 
-
-        let savedTheme =
-            localStorage.getItem(
-                "xiTKJTheme"
-            );
-
-
-        if (savedTheme === "purple") {
-
-            document.body.classList.add(
-                "purple"
-            );
-
-            themeButton.innerHTML =
-                "🔵 Biru";
-
-        }
-
-
-        themeButton.addEventListener(
-            "click",
-            () => {
-
-
-                document.body.classList.toggle(
-                    "purple"
-                );
-
-
-                if (
-                    document.body.classList.contains(
-                        "purple"
-                    )
-                ) {
-
-                    localStorage.setItem(
-                        "xiTKJTheme",
-                        "purple"
-                    );
-
-                    themeButton.innerHTML =
-                        "🔵 Biru";
-
-                }
-
-                else {
-
-                    localStorage.setItem(
-                        "xiTKJTheme",
-                        "blue"
-                    );
-
-                    themeButton.innerHTML =
-                        "🟣 Ungu";
-
-                }
-
-            }
-        );
-
-
-    </script>
-
+});
+</script>
 
 </body>
-
 </html>
