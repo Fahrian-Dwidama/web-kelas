@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengurus Kelas XI TKJ 1</title>
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --card-border: #e0e0e0;
+            --header-bg: #2c3e50;
+            --primary: #3498db;
+            --desc-bg: #f8f9fa;
+        }
+        .dark-mode {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --card-border: #333333;
+            --header-bg: #1f2937;
+            --primary: #e74c3c;
+            --desc-bg: #2a2a2a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-color); transition: 0.3s; padding-bottom: 50px; }
+
+        /* Header Navigasi */
+        .header-khusus {
+            background: var(--header-bg);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .btn-back, .btn-mode {
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-back:hover, .btn-mode:hover { opacity: 0.85; transform: scale(1.03); }
+
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .page-title { text-align: center; margin-bottom: 30px; }
+        .page-title h1 { font-size: 2rem; margin-bottom: 5px; }
+        .page-title p { color: #777; font-size: 0.95rem; }
+
+        /* Grid Kartu Pengurus */
+        .pengurus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* Kartu Profil */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .card img {
+            width: 90px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 12px;
+            border: 3px solid var(--primary);
+        }
+        .card h3 { font-size: 1.2rem; margin-bottom: 4px; }
+        .card .jabatan {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Box Penjelasan Tugas */
+        .tugas-box {
+            background: var(--desc-bg);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            text-align: left;
+            width: 100%;
+            margin-top: auto;
+            border-left: 3px solid var(--primary);
+        }
+        .tugas-box strong { display: block; margin-bottom: 4px; color: var(--text-color); }
+
+        /* Kartu Khusus Wali Kelas (Lebih Lebar) */
+        .card-full {
+            grid-column: 1 / -1;
+            max-width: 500px;
+            margin: 0 auto 10px auto;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigasi -->
+    <div class="header-khusus">
+        <a href="index.html" class="btn-back">⬅ Beranda</a>
+        <h2>Halaman Khusus</h2>
+        <button class="btn-mode" onclick="toggleDarkMode()">🌙 Mode</button>
+    </div>
+
+    <div class="container">
+        
+        <div class="page-title">
+            <h1>Struktur & Tugas Pengurus Kelas XI TKJ 1</h1>
+            <p>Daftar lengkap pengurus kelas beserta rincian tugas dan tanggung jawabnya di sekolah.</p>
+        </div>
+
+        <div class="pengurus-grid">
+
+            <!-- 1. WALI KELAS -->
+            <div class="card card-full">
+                <img src="images/wali kelas.png" alt="Wali Kelas">
+                <h3>Bpk/Ibu Wali Kelas</h3>
+                <div class="jabatan">Wali Kelas</div>
+                <div class="tugas-box">
+                    <strong>Tugas & Tanggung Jawab:</strong>
+                    Membina, membimbing, dan mengawasi seluruh siswa XI TKJ 1, memantau perkembangan akademik serta kedisiplinan, dan menjadi penghubung antara pihak sekolah dengan orang tua siswa.
+                </div>
+            </div>
+
+            <!-- 2. KETUA KELAS -->
+            <div class="card">
+                <img src="images/ketua kelas.jpg" alt="Ketua Kelas">
+                <h3>Nama Ketua Kelas</h3>
+                <div class="jabatan">Ketua Kelas</div>
+                <div class="tugas-box">
+                    <strong>Tugas & Tanggung Jawab:</strong>
+                    Memimpin dan mengoordinasikan seluruh kegiatan kelas, menjaga ketertiban suasana belajar, serta menjadi jembatan komunikasi antara siswa dengan guru atau wali kelas.
+                </div>
+            </div>
+
+            <!-- 3. WAKIL KETUA KELAS -->
+            <div class="card">
+                <img src="images/Wakil Ketua.jpg" alt="Wakil Ketua">
+                <h3>Nama Wakil Ketua</h3>
+                <div class="jabatan">Wakil Ketua Kelas</div>
+                <div class="tugas-box">
+                    <strong>Tugas & Tanggung Jawab:</strong>
+                    Membantu ketua kelas dalam menjalankan seluruh program kerja, serta mengambil alih tugas kepemimpinan apabila ketua kelas sedang berhalangan hadir.
+                </div>
+            </div>
+
+            <!-- 4. SEKRETARIS 1 -->
+            <div class="card">
+                <img src="images/sekretaris1.jpg" alt="Sekretaris 1">
+                <h3>Nama Sekretaris 1</h3>
+                <div class="jabatan">Sekretaris 1</div>
+                <div class="tugas-box">
+                    <strong>Tugas & Tanggung Jawab:</strong>
+                    Mencatat dan mengelola rekap presensi (kehadiran) siswa setiap hari, serta menyusun notulen saat rapat kelas atau kegiatan diskusi.
+                </div>
+            </div>
+
+            <!-- 5. SEKRETARIS 2 -->
+            <div class="card">
+                <img src="images/sekretaris2.jpg" alt="Sekretaris 2">
+                <h3>Nama Sekretaris 2</h3>
+                <div class="jabatan">Sekretaris 2</div>
+                <div class="tugas-box">
+                    <strong>Tugas & Tanggung Jawab:</strong>
+                    Membantu Sekretaris 1 dalam pencatatan agenda harian pembelajaran, pengelolaan surat-menyurat kelas, dan pembuatan jadwal pendaftaran tugas.
+                </div>
+            </div>
+
+            <!-- 6. BENDAHARA 1 -->
+            <div class="card">
+                <img src="images/Bendahara.jpg" alt="Bendahara 1">
+                <h3>Nama Bendahara 1</h3>
+                <div class="jabatan">Bendahara 1</div>
+                <div class="tugas-box">
+                    <strong>Tugas & Tanggung Jawab:</strong>
+                    Mengelola keuangan dan uang kas kelas, melakukan penarikan iuran rutin bulanan/mingguan, serta mencatat pemasukan keuangan secara terperinci.
+                </div>
+            </div>
+
+            <!-- 7. BENDAHARA 2 -->
+            <div class="card">
+                <img src="images/Bendahara2.jpg" alt="Bendahara 2">
+                <h3>Nama Bendahara 2</h3>
+                <div class="jabatan">Bendahara 2</div>
+                <div class="tugas-box">
+                    <strong>Tugas & Tanggung Jawab:</strong>
+                    Membantu Bendahara 1 dalam menyimpan nota pengeluaran, mencatat transaksi belanja kebutuhan kelas, dan menyimpan dana cadangan kas kelas.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Cek status Mode Gelap/Terang dari localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Fungsi Toggle Mode Gelap/Terang
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        }
+    </script>
+</body>
+</html>
