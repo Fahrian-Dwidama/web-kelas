@@ -439,8 +439,10 @@ main {
 .home-menu {
     margin-top: 42px;
 
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    /* Gunakan Flexbox agar elemen otomatis ke tengah */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 16px;
 }
 
